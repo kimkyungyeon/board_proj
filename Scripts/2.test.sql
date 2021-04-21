@@ -48,3 +48,25 @@ delete
 select * from board b  where board_num = 25 and BOARD_PASS = '1234';
  
 select * from board b2  where BOARD_NUM = 37;
+
+-- 수정
+select BOARD_NUM, BOARD_NAME, BOARD_PASS, BOARD_SUBJECT, BOARD_CONTENT,
+BOARD_FILE, BOARD_RE_REF, BOARD_RE_LEV, BOARD_RE_SEQ, BOARD_READCOUNT, BOARD_DATE
+  from board
+ order by BOARD_RE_REF desc, BOARD_RE_SEQ;
+
+update board 
+   set BOARD_SUBJECT  = 'aaa', board_content = 'aaa'
+ where BOARD_NUM =39;
+
+-- 글에 대한 답변
+update board set board_re_seq = BOARD_RE_SEQ + 1
+where board_re_ref = 23 and board_re_seq > 0;
+
+insert into board
+(BOARD_NUM, BOARD_NAME, BOARD_PASS, BOARD_SUBJECT, BOARD_CONTENT, BOARD_FILE,
+BOARD_RE_REF, BOARD_RE_LEV, BOARD_RE_SEQ)
+values(?,?,?,?,?,?,?,?,?);
+
+
+select * from board where BOARD_RE_REF = 33;

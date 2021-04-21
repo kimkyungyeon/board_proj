@@ -16,7 +16,7 @@ public class BoardDeleteProAction implements Action {
 		// boardDeletePro.do?board_num=37
 		// hiddenpage=1
 		// BOARD_PASS=aaaa
-
+		response.setContentType("text/html;charset=UTF-8");
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		String page = request.getParameter("page");
 		String pass = request.getParameter("BOARD_PASS");

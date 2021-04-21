@@ -1,7 +1,5 @@
 package board_proj.dao;
 
-import static org.junit.Assert.fail;
-
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -29,7 +27,7 @@ public class BoardDAOTest {
 		System.out.println();
 	}
 	
-	@Test
+//	@Test
 	public void testNextBoardNum() {
 		System.out.println("testNextBoardNum()");
 		int res = dao.nextBoardNum();
@@ -37,7 +35,7 @@ public class BoardDAOTest {
 		System.out.println(res);
 	}
 
-	@Test
+//	@Test
 	public void testSelectListCount() {
 		System.out.println("testSelectListCount()");
 		int res = dao.selectListCount();
@@ -47,7 +45,7 @@ public class BoardDAOTest {
 		
 	}
 
-	@Test
+//	@Test
 	public void testSelectArticleList() {
 		System.out.println("testSelectArticleList()");
 		ArrayList<BoardDTO> list = dao.selectArticleList(1, 10);
@@ -59,7 +57,7 @@ public class BoardDAOTest {
 				
 	}
 
-	@Test
+//	@Test
 	public void testSelectArticle() {
 		System.out.println("testSelectArticle()");
 		BoardDTO board = dao.selectArticle(1);
@@ -67,7 +65,7 @@ public class BoardDAOTest {
 		System.out.println(board);
 	}
 
-	@Test
+//	@Test
 	public void testInsertArticle() {
 		System.out.println("testInsertArticle");
 		BoardDTO article = new BoardDTO(
@@ -82,16 +80,29 @@ public class BoardDAOTest {
 	}
 
 	@Test
-	public void testInsertReplyArticle() {
-		fail("Not yet implemented");
+	public void test10InsertReplyArticle() {
+		System.out.println("test10insertreplyarticle");
+		BoardDTO replyArticle = new BoardDTO("김경연","1111","답글","절대로","");
+		replyArticle.setBoard_re_ref(33);
+		replyArticle.setBoard_re_lev(1);
+		replyArticle.setBoard_re_seq(1);
+		
+		int res = dao.insertReplyArticle(replyArticle);
+		Assert.assertEquals(1,res);
+		System.out.println("res >>" + res);
 	}
 
-	@Test
+//	@Test
 	public void testUpdateArticle() {
-		fail("Not yet implemented");
+		System.out.println("test09UpdateArticle");
+		int board_num = 22;
+		BoardDTO article = dao.selectArticle(board_num);
+		int res = dao.updateArticle(article);
+		Assert.assertEquals(1, res);
+		System.out.println(res);
 	}
 
-	@Test
+//	@Test
 	public void test08DeleteArticle() {
 		System.out.println("test07DeleteArticle()");
 		int board_num = dao.nextBoardNum() -1;
@@ -100,19 +111,19 @@ public class BoardDAOTest {
 		System.out.println("res >>" +res);
 	}
 
-	@Test
+//	@Test
 	public void testUpdateReadCount() {
 		System.out.println("testUpdateReadCount()");
 		int res  = dao.updateReadCount(1);
 		Assert.assertEquals(1, res);
 	}
 
-	@Test
+//	@Test
 	public void test07IsArticleBoardWriter() {
 		System.out.println("isarticleboardWriter");
 		int board_num = 22;
 		boolean res = dao.isArticleBoardWriter(board_num, "sdf");
-		Assert.assertEquals(true, res);
+		Assert.assertEquals(1, res);
 		System.out.println("res >> " + res);
 	}
 

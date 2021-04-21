@@ -13,7 +13,10 @@ import board_proj.action.Action;
 import board_proj.action.BoardDeleteProAction;
 import board_proj.action.BoardDetailAction;
 import board_proj.action.BoardListAction;
+import board_proj.action.BoardModifyFormAction;
+import board_proj.action.BoardModifyProAction;
 import board_proj.action.BoardReplyFormAction;
+import board_proj.action.BoardReplyProAction;
 import board_proj.action.BoardWriteProAction;
 import board_proj.action.FileDownAction;
 import board_proj.dto.ActionForward;
@@ -100,7 +103,35 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} else if (command.equals("/boardModifyForm.do")) {
+			action = new BoardModifyFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/boardModifyPro.do")) {
+			action = new BoardModifyProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/boardReplyForm.do")) {
+			action = new BoardReplyFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/boardReplyPro.do")) {
+			action = new BoardReplyProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
 		
 		
 		

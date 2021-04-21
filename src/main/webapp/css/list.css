@@ -46,6 +46,10 @@ table td:nth-child(5){
 	width: 10%;
 }
 
+#subject {
+	text-align: left;
+}
+
 table tr:first-child, tr:last-child{
 	border-bottom: 2px solid #ff3030;	
 }
