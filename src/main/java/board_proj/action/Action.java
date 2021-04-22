@@ -8,3 +8,4 @@ import board_proj.dto.ActionForward;
 public interface Action {
 	ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }
+  
